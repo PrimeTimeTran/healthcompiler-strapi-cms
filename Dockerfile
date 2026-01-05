@@ -4,7 +4,7 @@ WORKDIR /app
 COPY ./package.json ./package-lock.json ./
 ENV PATH /app/node_modules/.bin:$PATH
 ENV NODE_OPTIONS=--max_old_space_size=4096
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY ./ .
 RUN npm run build
 EXPOSE 8080
